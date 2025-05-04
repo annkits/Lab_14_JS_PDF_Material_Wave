@@ -1,13 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8" />
+    <!-- Проверка подключения CSS -->
+    <script>
+        window.onload = () => {
+            const link = document.querySelector('link[href="styles.css"]');
+            if (!link || !document.styleSheets.length) {
+                console.error('CSS файл не подключен! Проверьте путь к styles.css');
+            } else {
+                console.log('CSS успешно подключен');
+            }
+            // Проверка подключения script.js
+            const script = document.querySelector('script[src="script.js"]');
+            if (!script) {
+                console.error('Файл script.js не подключён! Проверьте путь или наличие файла.');
+            } else {
+                console.log('script.js успешно подключён');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="ripple">
+            <h1 contenteditable="true" data-key="name">Иван Иванов</h1>
+            <p contenteditable="true" data-key="title">Веб-разработчик</p>
+        </header>
+        <section class="contact ripple">
+            <h2>Контакты</h2>
+            <p contenteditable="true" data-key="email">Email: ivan.ivanov@email.com</p>
+            <p contenteditable="true" data-key="phone">Телефон: +7 (123) 456-78-90</p>
+        </section>
+        <section class="experience ripple">
+            <h2>Опыт работы</h2>
+            <p contenteditable="true" data-key="job1">ООО "Техно", Веб-разработчик, 2020-2023</p>
+            <p contenteditable="true" data-key="job2">Фриланс, Frontend-разработчик, 2018-2020</p>
+        </section>
+        <section class="education ripple">
+            <h2>Образование</h2>
+            <p contenteditable="true" data-key="education">Московский Технический Университет, Информатика, 2014-2018</p>
+        </section>
+        <button id="download-btn" class="ripple">Скачать PDF</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
